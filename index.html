@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1LEB Quota Tracker</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body onload="loadFromLocalStorage()">
+    <div id="container">
+        <div class="unit battalion">
+            <div class="unit-title">Battalion</div>
+            <div class="unit-command">
+                <div class="command-box" onclick="editQuota(this)">jooootr</div>
+                <div class="command-box" onclick="editQuota(this)">N/A</div>
+                <div class="command-box" onclick="editQuota(this)">strawberry</div>
+            </div>
+            <div class="company">
+                <div class="unit-title">Alpha Company</div>
+                <div class="unit-command">
+                    <div class="command-box" onclick="editQuota(this)">maddie</div>
+                    <div class="command-box" onclick="editQuota(this)">slowly</div>
+                </div>
+                <div class="platoon">
+                    <div class="unit-title">First Platoon</div>
+                    <div class="unit-command">
+                        <div class="command-box" onclick="editQuota(this)">SirGarrix</div>
+                        <div class="command-box" onclick="editQuota(this)">N/A</div>
+                        <div class="command-box" onclick="editQuota(this)">bltavi</div>
+                    </div>
+                    <div class="squad">
+                        <div class="unit-title">Squad 1</div>
+                        <div class="players"></div>
+                        <button class="btn" onclick="addPlayer(this)">Add Player</button>
+                    </div>
+                    <div class="squad">
+                        <div class="unit-title">Squad 2</div>
+                        <div class="players"></div>
+                        <button class="btn" onclick="addPlayer(this)">Add Player</button>
+                    </div>
+                    <div class="squad">
+                        <div class="unit-title">Squad 3</div>
+                        <div class="players"></div>
+                        <button class="btn" onclick="addPlayer(this)">Add Player</button>
+                    </div>
+                </div>
+                <div class="platoon">
+                    <div class="unit-title">Second Platoon</div>
+                    <div class="unit-command">
+                        <div class="command-box" onclick="editQuota(this)">N/A</div>
+                        <div class="command-box" onclick="editQuota(this)">N/A</div>
+                        <div class="command-box" onclick="editQuota(this)">N/A</div>
+                    </div>
+                    <div class="squad">
+                        <div class="unit-title">Squad 1</div>
+                        <div class="players"></div>
+                        <button class="btn" onclick="addPlayer(this)">Add Player</button>
+                    </div>
+                    <div class="squad">
+                        <div class="unit-title">Squad 2</div>
+                        <div class="players"></div>
+                        <button class="btn" onclick="addPlayer(this)">Add Player</button>
+                    </div>
+                    <div class="squad">
+                        <div class="unit-title">Squad 3</div>
+                        <div class="players"></div>
+                        <button class="btn" onclick="addPlayer(this)">Add Player</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="totals">
+        <div>Total Time Logged: <span id="total-time-logged">0</span> hours</div>
+        <div>Total Recruiting Time: <span id="total-recruiting-time">0</span> hours</div>
+    </div>
+    <button class="btn reset" onclick="resetQuotas()">Reset All</button>
+    <script src="scripts.js"></script>
+</body>
+</html>
+
