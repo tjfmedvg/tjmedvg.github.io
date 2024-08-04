@@ -105,8 +105,7 @@ function saveToLocalStorage() {
             name: playerDiv.querySelector('span').textContent,
             timeLogged: playerDiv.querySelector('.time-logged').textContent,
             eventsAttended: playerDiv.querySelector('.events-attended').textContent,
-            recruitingTime: playerDiv.querySelector('.recruiting-time').textContent,
-            squadId: playerDiv.closest('.players').id
+            recruitingTime: playerDiv.querySelector('.recruiting-time').textContent
         };
         data.players.push(player);
     });
@@ -140,7 +139,7 @@ function loadFromLocalStorage() {
                 <button class="btn edit" onclick="editPlayer(this)">Edit</button>
                 <button class="btn remove" onclick="removePlayer(this)">Remove</button>
             `;
-            document.getElementById(player.squadId).appendChild(playerDiv);
+            document.querySelector('.players').appendChild(playerDiv);
         });
 
         data.commands.forEach(command => {
@@ -159,8 +158,3 @@ function loadFromLocalStorage() {
         updateTotals();
     }
 }
-
-document.addEventListener('DOMContentLoaded', () => {
-    loadFromLocalStorage();
-    updateTotals();
-});
