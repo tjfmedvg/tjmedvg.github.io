@@ -70,7 +70,6 @@ function removeEvent() {
 function updateTotals() {
     totalTimeLogged = 0;
     totalRecruitingTime = 0;
-    totalEventsHosted = 0;
 
     document.querySelectorAll('.player').forEach(playerDiv => {
         totalTimeLogged += parseFloat(playerDiv.querySelector('.time-logged').textContent);
