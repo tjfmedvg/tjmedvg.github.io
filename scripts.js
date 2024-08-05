@@ -101,7 +101,8 @@ function saveToLocalStorage() {
         players: [],
         commands: [],
         totalTimeLogged,
-        totalRecruitingTime
+        totalRecruitingTime,
+        totalEventsHosted
     };
 
     document.querySelectorAll('.player').forEach(playerDiv => {
@@ -159,6 +160,7 @@ function loadFromLocalStorage() {
 
         totalTimeLogged = data.totalTimeLogged;
         totalRecruitingTime = data.totalRecruitingTime;
+        totalEventsHosted = data.totalEventsHosted;
         updateTotals();
     }
 }
