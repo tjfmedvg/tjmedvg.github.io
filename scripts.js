@@ -58,7 +58,9 @@ function editPlayer(button) {
     saveToLocalStorage();
 }
 
-document.getElementByID('')
+function addEvent(button) {
+    
+}
 
 function updateTotals() {
     totalTimeLogged = 0;
