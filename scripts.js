@@ -100,6 +100,8 @@ function resetQuotas() {
         commandBox.setAttribute('data-recruiting-time', '0');
     });
 
+    totalEventsHosted = 0;
+
     updateTotals();
     saveToLocalStorage();
 }
