@@ -1,5 +1,6 @@
 let totalTimeLogged = 0;
 let totalRecruitingTime = 0;
+let totalEventsHosted = 0;
 
 function addPlayer(button) {
     const playerName = prompt('Enter player name:');
@@ -60,6 +61,7 @@ function editPlayer(button) {
 function updateTotals() {
     totalTimeLogged = 0;
     totalRecruitingTime = 0;
+    totalEventsHosted = 0;
 
     document.querySelectorAll('.player').forEach(playerDiv => {
         totalTimeLogged += parseFloat(playerDiv.querySelector('.time-logged').textContent);
