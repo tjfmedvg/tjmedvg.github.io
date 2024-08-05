@@ -58,8 +58,13 @@ function editPlayer(button) {
     saveToLocalStorage();
 }
 
-function addEvent(button) {
-    
+function addEvent() {
+    totalEventsHosted += 1;
+    updateTotals();
+}
+function removeEvent() {
+    totalEventsHosted -= 1;
+    updateTotals();
 }
 
 function updateTotals() {
