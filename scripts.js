@@ -76,7 +76,7 @@ function updateTotals() {
 
     document.getElementById('total-time-logged').textContent = totalTimeLogged.toFixed(2);
     document.getElementById('total-recruiting-time').textContent = totalRecruitingTime.toFixed(2);
-    document.getElementById('total-events-hosted').textContent = totalRecruitingTime.toFixed(2);
+    document.getElementById('total-events-hosted').textContent = totalEventsHosted.toFixed(2);
 }
 
 function resetQuotas() {
