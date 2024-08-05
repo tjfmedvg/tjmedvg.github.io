@@ -71,10 +71,12 @@ function updateTotals() {
     document.querySelectorAll('.command-box').forEach(commandBox => {
         totalTimeLogged += parseFloat(commandBox.getAttribute('data-time-logged') || '0');
         totalRecruitingTime += parseFloat(commandBox.getAttribute('data-recruiting-time') || '0');
+        totalEventsHosted += parseFloat(commandBox.getAttribute('data-events-attended') || '0');
     });
 
     document.getElementById('total-time-logged').textContent = totalTimeLogged.toFixed(2);
     document.getElementById('total-recruiting-time').textContent = totalRecruitingTime.toFixed(2);
+    document.getElementById('total-events-hosted').textContent = totalRecruitingTime.toFixed(2);
 }
 
 function resetQuotas() {
