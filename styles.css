@@ -95,6 +95,16 @@ body {
     align-items: center;
 }
 
+.btn.addEvent {
+    background: #40ff73;
+    margin-top: 20px;
+    align-items: center;
+}
+
+.btn.addEvent:hover {
+    background: #28b54e;
+}
+
 .btn.reset:hover {
     background: #dc2626;
 }
