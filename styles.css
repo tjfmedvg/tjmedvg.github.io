@@ -116,6 +116,32 @@ body {
     background: #dc2626;
 }
 
+/* Ensure the group of buttons is vertically aligned */
+.btn-group {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    align-items: center;
+}
 
+/* Adjust the size and shape of the buttons */
+.btn-group .btn {
+    width: 100%; /* Make the buttons fill the width of the group */
+    padding: 15px 0; /* Adjust padding to make buttons taller */
+    margin: 0; /* Remove default margin */
+    border-radius: 4px 4px 0 0; /* Rounded corners for the top button */
+}
 
+.btn-group .btn + .btn {
+    border-radius: 0 0 4px 4px; /* Rounded corners for the bottom button */
+    margin-top: 1px; /* Small space between buttons */
+}
+
+.btn-group .btn.addEvent {
+    border-bottom: none; /* Remove bottom border from the top button */
+}
+
+.btn-group .btn.removeEvent {
+    border-top: 1px solid #ef4444; /* Make sure there's a clear division */
+}
 
