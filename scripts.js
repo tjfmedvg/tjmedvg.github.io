@@ -31,22 +31,28 @@ function removePlayer(button) {
     }
 }
 
+function editQuota(element) {
+    const timeLogged = prompt('Enter time logged (minutes):', element.getAttribute('data-time-logged') || '0') / 60;
+    const eventsAttended = prompt('Enter events attended:', element.getAttribute('data-events-attended') || '0');
+    const recruitingTime = prompt('Enter recruiting time (hours):', element.getAttribute('data-recruiting-time') || '0');
+
+    element.setAttribute('data-time-logged', timeLogged);
+    element.setAttribute('data-events-attended', eventsAttended);
+    element.setAttribute('data-recruiting-time', recruitingTime);
+
+    updateTotals();
+    saveToLocalStorage();
+}
+
 function editPlayer(button) {
     const playerDiv = button.parentElement;
-    
-    const currentTimeLogged = parseFloat(playerDiv.querySelector('.time-logged').textContent);
-    const currentRecruitingTime = parseFloat(playerDiv.querySelector('.recruiting-time').textContent);
+    const timeLogged = prompt('Enter time logged (minutes):', playerDiv.querySelector('.time-logged').textContent) / 60;
+    const eventsAttended = prompt('Enter events attended:', playerDiv.querySelector('.events-attended').textContent);
+    const recruitingTime = prompt('Enter recruiting time (hours):', playerDiv.querySelector('.recruiting-time').textContent);
 
-    const timeLoggedHours = parseInt(prompt('Enter hours to add/subtract to time logged:', 0));
-    const timeLoggedMinutes = parseInt(prompt('Enter minutes to add/subtract to time logged:', 0));
-    const recruitingTimeHours = parseInt(prompt('Enter hours to add/subtract to recruiting time:', 0));
-    const recruitingTimeMinutes = parseInt(prompt('Enter minutes to add/subtract to recruiting time:', 0));
-
-    const newTimeLogged = currentTimeLogged + timeLoggedHours + (timeLoggedMinutes / 60);
-    const newRecruitingTime = currentRecruitingTime + recruitingTimeHours + (recruitingTimeMinutes / 60);
-
-    playerDiv.querySelector('.time-logged').textContent = newTimeLogged.toFixed(2);
-    playerDiv.querySelector('.recruiting-time').textContent = newRecruitingTime.toFixed(2);
+    playerDiv.querySelector('.time-logged').textContent = timeLogged;
+    playerDiv.querySelector('.events-attended').textContent = eventsAttended;
+    playerDiv.querySelector('.recruiting-time').textContent = recruitingTime;
 
     updateTotals();
     saveToLocalStorage();
@@ -70,6 +76,11 @@ function updateTotals() {
         totalRecruitingTime += parseFloat(playerDiv.querySelector('.recruiting-time').textContent);
     });
 
+    document.querySelectorAll('.command-box').forEach(commandBox => {
+        totalTimeLogged += parseFloat(commandBox.getAttribute('data-time-logged') || '0');
+        totalRecruitingTime += parseFloat(commandBox.getAttribute('data-recruiting-time') || '0');
+    });
+
     document.getElementById('total-time-logged').textContent = totalTimeLogged.toFixed(2);
     document.getElementById('total-recruiting-time').textContent = totalRecruitingTime.toFixed(2);
     document.getElementById('total-events-hosted').textContent = totalEventsHosted.toFixed(2);
@@ -82,6 +93,12 @@ function resetQuotas() {
         playerDiv.querySelector('.recruiting-time').textContent = '0';
     });
 
+    document.querySelectorAll('.command-box').forEach(commandBox => {
+        commandBox.setAttribute('data-time-logged', '0');
+        commandBox.setAttribute('data-events-attended', '0');
+        commandBox.setAttribute('data-recruiting-time', '0');
+    });
+
     totalEventsHosted = 0;
 
     updateTotals();
@@ -91,6 +108,7 @@ function resetQuotas() {
 function saveToLocalStorage() {
     const data = {
         players: [],
+        commands: [],
         totalTimeLogged,
         totalRecruitingTime,
         totalEventsHosted
@@ -104,6 +122,16 @@ function saveToLocalStorage() {
             recruitingTime: playerDiv.querySelector('.recruiting-time').textContent
         };
         data.players.push(player);
+    });
+
+    document.querySelectorAll('.command-box').forEach(commandBox => {
+        const command = {
+            quota: commandBox.textContent,
+            timeLogged: commandBox.getAttribute('data-time-logged') || '0',
+            eventsAttended: commandBox.getAttribute('data-events-attended') || '0',
+            recruitingTime: commandBox.getAttribute('data-recruiting-time') || '0'
+        };
+        data.commands.push(command);
     });
 
     localStorage.setItem('quotaTrackerData', JSON.stringify(data));
@@ -126,6 +154,17 @@ function loadFromLocalStorage() {
                 <button class="btn remove" onclick="removePlayer(this)">Remove</button>
             `;
             document.querySelector('.players').appendChild(playerDiv);
+        });
+
+        data.commands.forEach(command => {
+            const commandBoxes = document.querySelectorAll('.command-box');
+            commandBoxes.forEach(commandBox => {
+                if (commandBox.textContent === command.quota) {
+                    commandBox.setAttribute('data-time-logged', command.timeLogged);
+                    commandBox.setAttribute('data-events-attended', command.eventsAttended);
+                    commandBox.setAttribute('data-recruiting-time', command.recruitingTime);
+                }
+            });
         });
 
         totalTimeLogged = data.totalTimeLogged;
