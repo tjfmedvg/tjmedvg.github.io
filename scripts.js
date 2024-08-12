@@ -32,7 +32,7 @@ function removePlayer(button) {
 }
 
 function editQuota(element) {
-    const timeLogged = prompt('Enter time logged (minutes):', element.getAttribute('data-time-logged') || '0') / 60;
+    const timeLogged = prompt('Enter time logged (hours):', element.getAttribute('data-time-logged') || '0');
     const eventsAttended = prompt('Enter events attended:', element.getAttribute('data-events-attended') || '0');
     const recruitingTime = prompt('Enter recruiting time (hours):', element.getAttribute('data-recruiting-time') || '0');
 
@@ -46,7 +46,7 @@ function editQuota(element) {
 
 function editPlayer(button) {
     const playerDiv = button.parentElement;
-    const timeLogged = prompt('Enter time logged (minutes):', playerDiv.querySelector('.time-logged').textContent) / 60;
+    const timeLogged = prompt('Enter time logged (hours):', playerDiv.querySelector('.time-logged').textContent);
     const eventsAttended = prompt('Enter events attended:', playerDiv.querySelector('.events-attended').textContent);
     const recruitingTime = prompt('Enter recruiting time (hours):', playerDiv.querySelector('.recruiting-time').textContent);
 
