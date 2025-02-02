@@ -101,32 +101,32 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Add event listener for showing product detail
         //card.addEventListener('click', (e) => {
-            //if (!e.target.classList.contains('dropdown-btn') && !e.target.classList.contains('dropdown-item')) {
-              //  showProductDetail(product.id);
-           // }
+        //if (!e.target.classList.contains('dropdown-btn') && !e.target.classList.contains('dropdown-item')) {
+        //  showProductDetail(product.id);
+        // }
         //});
 
         // Create size dropdown
         //const sizeDropdown = document.createElement('div');
         //sizeDropdown.className = 'fake-dropdown size-select';
         //sizeDropdown.innerHTML = `
-          //<button class="dropdown-btn">Select Size</button>
-          //<ul class="dropdown-menu">
-          //  ${product.sizes.map(size => `<li class="dropdown-item" data-value="${size}">${size}</li>`).join('')}
-         // </ul>
+        //<button class="dropdown-btn">Select Size</button>
+        //<ul class="dropdown-menu">
+        //  ${product.sizes.map(size => `<li class="dropdown-item" data-value="${size}">${size}</li>`).join('')}
+        // </ul>
         //`;
 
         // Create color dropdown (if colors are available)
         //let colorDropdown = null;
         //if (product.colors.length > 1) {
-         //   colorDropdown = document.createElement('div');
-         //   colorDropdown.className = 'fake-dropdown color-select';
-         //   colorDropdown.innerHTML = `
-         //     <button class="dropdown-btn">Select Color</button>
-         //     <ul class="dropdown-menu">
-         //       ${product.colors.map(color => `<li class="dropdown-item" data-value="${color}" style="background-color: ${color};"></li>`).join('')}
-          //    </ul>
-          //  `;
+        //   colorDropdown = document.createElement('div');
+        //   colorDropdown.className = 'fake-dropdown color-select';
+        //   colorDropdown.innerHTML = `
+        //     <button class="dropdown-btn">Select Color</button>
+        //     <ul class="dropdown-menu">
+        //       ${product.colors.map(color => `<li class="dropdown-item" data-value="${color}" style="background-color: ${color};"></li>`).join('')}
+        //    </ul>
+        //  `;
         //}
 
         // Add dropdown container
@@ -140,7 +140,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <img src="${product.images[0]}" alt="${product.title}">
           <h3>${product.title}</h3>
         `;
-       // card.appendChild(sizeColorContainer);
+        // card.appendChild(sizeColorContainer);
         card.innerHTML += `
           <p class="price">${product.price}</p>
           <a href="${product.link}" class="buy-link" target="_blank">Buy Now</a> 
@@ -154,36 +154,36 @@ document.addEventListener("DOMContentLoaded", () => {
             showProductDetail(product);
         });
 
-         // Add event listeners for dropdown functionality
+        // Add event listeners for dropdown functionality
         // [sizeDropdown, colorDropdown].forEach(dropdown => {
-           // if (dropdown) {
-              //  const btn = dropdown.querySelector('.dropdown-btn');
-              //  const menu = dropdown.querySelector('.dropdown-menu');
-              //  console.log(btn);
-              //  console.log(menu);
+        // if (dropdown) {
+        //  const btn = dropdown.querySelector('.dropdown-btn');
+        //  const menu = dropdown.querySelector('.dropdown-menu');
+        //  console.log(btn);
+        //  console.log(menu);
 
-             //   btn.addEventListener('click', (_) => {
-                //    console.log('clicked')
-               //     menu.classList.toggle('visible');
-              //  });
+        //   btn.addEventListener('click', (_) => {
+        //    console.log('clicked')
+        //     menu.classList.toggle('visible');
+        //  });
 
-              //  menu.addEventListener('click', (e) => {
-               //     if (e.target.classList.contains('dropdown-item')) {
-               //         const value = e.target.dataset.value;
-               //         btn.textContent = value; // Update button text with the selected value
-               //         menu.classList.remove('visible'); // Hide menu
-               //     }
-               // });
+        //  menu.addEventListener('click', (e) => {
+        //     if (e.target.classList.contains('dropdown-item')) {
+        //         const value = e.target.dataset.value;
+        //         btn.textContent = value; // Update button text with the selected value
+        //         menu.classList.remove('visible'); // Hide menu
+        //     }
+        // });
 
-                // Close the dropdown when clicking outside
-               // document.addEventListener('click', e => {
-               //     if (e.target === menu) return;
-                //    if (e.target === btn) return;
-               //     menu.classList.remove('visible')
-               // });
-            //}
+        // Close the dropdown when clicking outside
+        // document.addEventListener('click', e => {
+        //     if (e.target === menu) return;
+        //    if (e.target === btn) return;
+        //     menu.classList.remove('visible')
+        // });
+        //}
         //});
-        
+
 
         productGrid.appendChild(card);
     });
@@ -272,13 +272,13 @@ document.addEventListener('click', (event) => {
 //const closeCartButton = document.getElementById('close-cart'); // Close cart button
 
 //openCartButton.addEventListener('click', () => {
-    //cartElement.classList.toggle('open');
+//cartElement.classList.toggle('open');
 //});
 
 //closeCartButton.addEventListener('click', () => {
-   // if (cartElement.classList.contains('open')) {
-      //  cartElement.classList.remove('open');
-    //}
+// if (cartElement.classList.contains('open')) {
+//  cartElement.classList.remove('open');
+//}
 //});
 
 
