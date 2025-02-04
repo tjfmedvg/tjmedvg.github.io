@@ -93,6 +93,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const addtocartbutton = document.getElementById('add-to-cart');
     const sizeSelect = document.getElementById('size-select'); // Existing element
     const colorSelect = document.getElementById('color-select'); // New element
+    const closeButton = document.createElement("button");
+    closeButton.innerHTML = "&times;";
+    closeButton.classList.add("close-button");
+    productDetail.appendChild(closeButton);
 
     // Render products
     products.forEach(product => {
@@ -196,8 +200,8 @@ document.addEventListener("DOMContentLoaded", () => {
         thumbnailContainer.innerHTML = '';
         product.images.forEach((image, index) => {
             const thumb = document.createElement('img');
-            thumb.src = image;
-            thumb.alt = `Thumbnail ${index + 1}`;
+            thumb.src = image || "https://placehold.co/500";
+            thumb.alt = ""
 
             if (index === 0) thumb.style.border = "2px solid #222f3e";
 
@@ -223,6 +227,16 @@ document.addEventListener("DOMContentLoaded", () => {
     productDetail.addEventListener('click', (event) => {
         if (event.target === productDetail) {
             productDetail.classList.add('hidden');
+        }
+    });
+    closeButton.addEventListener("click", function () {
+        productDetail.classList.add('hidden');
+    });
+    window.addEventListener("resize", function () {
+        if (window.innerWidth <= 750) {
+            productDetail.classList.add("mobile-view");
+        } else {
+            productDetail.classList.remove("mobile-view");
         }
     });
 });
