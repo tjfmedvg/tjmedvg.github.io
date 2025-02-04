@@ -235,8 +235,10 @@ document.addEventListener("DOMContentLoaded", () => {
     window.addEventListener("resize", function () {
         if (window.innerWidth <= 750) {
             productDetail.classList.add("mobile-view");
+            closeButton.classList.remove("hidden")
         } else {
             productDetail.classList.remove("mobile-view");
+            closeButton.classList.add("hidden")
         }
     });
 });
