@@ -313,7 +313,7 @@ header {
 }
 
 #product-description {
-    text-align: justify;
+    text-align: left;
 }
 
 #product-description::after {
