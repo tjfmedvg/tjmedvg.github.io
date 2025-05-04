@@ -1,108 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HonestlyTwisted - Hair Care & Style</title>
+    <title>HonestlyTwisted</title>
+    <link rel="icon" href="HonestlyTwistedLogoIcon.ico">
     <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script defer src="script.js"></script>
-    </head>
-<body class="antialiased">
+</head>
 
-    <header class="sticky top-0 z-50 bg-white shadow-md">
-        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#home" class="text-3xl font-bold text-primary-brand">HonestlyTwisted</a>
-            <div class="hidden md:flex items-center space-x-6">
-                 <a href="#products-section" class="nav-link">Products</a>
-                 <a href="https://www.instagram.com/_styledwithahonesty_/" target="_blank" class="nav-link hover:text-primary-brand transition duration-300">
-                     <i class="fab fa-instagram mr-1"></i> Follow Us
-                 </a>
-                 <a href="https://booksy.com/en-us/687726_ahonesty-kitchen_braids-locs_20639_wichita?do=invite&fbclid=PAZXh0bgNhZW0CMTEAAaa62DlNd_obIJY-cIp4jwWGKer4gy8s68qyHsb6SRACjAaZ3QqvRIKfkZk_aem_0xpFIrrz7JumB7ouZC-zyA#ba_s=dl_1" target="_blank" class="btn bg-primary-brand text-white font-semibold rounded-full hover:bg-primary-brand-dark transition duration-300">Book Now</a>
+<body>
+    <!--<header>
+        <nav>
+            <div class="logo">
+                <a href="/">  
+                    <img src="HonestlyTwistedLogoIcon.ico" alt="HonestlyTwisted Logo">
+                </a>
             </div>
-             <div class="md:hidden">
-                <button id="menu-btn" class="text-gray-700 focus:outline-none">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
-                </button>
+            <div class="header-links">
+                <a href="https://www.instagram.com/_styledwithahonesty_/" target="_blank" class="instagram-link">
+                    <i class="fa fa-instagram" alt="Instagram Logo"></i> Follow Us
+                </a>
+                <a href="https://booksy.com/en-us/687726_ahonesty-kitchen_braids-locs_20639_wichita?do=invite&fbclid=PAZXh0bgNhZW0CMTEAAaa62DlNd_obIJY-cIp4jwWGKer4gy8s68qyHsb6SRACjAaZ3QqvRIKfkZk_aem_0xpFIrrz7JumB7ouZC-zyA#ba_s=dl_1" class="book-now-btn">Book Now</a>
             </div>
         </nav>
-         <div id="mobile-menu" class="md:hidden nav-menu">
-             <a href="#products-section" class="nav-link block py-2 px-4 text-sm hover:bg-gray-100">Products</a>
-             <a href="https://www.instagram.com/_styledwithahonesty_/" target="_blank" class="nav-link block py-2 px-4 text-sm hover:bg-gray-100"><i class="fab fa-instagram mr-1"></i> Follow Us</a>
-             <a href="https://booksy.com/en-us/687726_ahonesty-kitchen_braids-locs_20639_wichita?do=invite&fbclid=PAZXh0bgNhZW0CMTEAAaa62DlNd_obIJY-cIp4jwWGKer4gy8s68qyHsb6SRACjAaZ3QqvRIKfkZk_aem_0xpFIrrz7JumB7ouZC-zyA#ba_s=dl_1" target="_blank" class="block py-3 px-4 text-sm bg-primary-brand text-white text-center rounded-md my-2 mx-4 hover:bg-primary-brand-dark transition duration-300">Book Now</a>
+    </header> -->
+
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Embrace Your Hair's Natural Beauty</h2>
+            <p>Discover premium products crafted for every twist and turn.</p>
         </div>
-    </header>
+    </section>
 
     <main>
-        <section id="home" class="relative h-[70vh] md:h-[80vh] flex items-center justify-center text-white text-center px-6 overflow-hidden">
-            <div class="absolute inset-0 z-0">
-                <img src="https://placehold.co/1920x1080/ffe1e3/663399?text=HonestlyTwisted+Style"
-                     alt="Stylish Hair Background"
-                     class="w-full h-full object-cover"
-                     onerror="this.onerror=null; this.src='https://placehold.co/1920x1080/cccccc/333333?text=Image+Not+Found';">
-                <div class="absolute inset-0 bg-black opacity-40"></div>
-            </div>
-            <div class="relative z-10 hero-text">
-                <h1 class="text-4xl md:text-6xl font-bold mb-4 text-white" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.6);">Embrace Your Hair's Natural Beauty</h1>
-                <p class="text-lg md:text-xl mb-8 text-gray-200" style="text-shadow: 1px 1px 3px rgba(0,0,0,0.6);">Discover premium products crafted for every twist and turn.</p>
-                <a href="#products-section" class="btn bg-primary-brand text-white font-semibold rounded-full hover:bg-primary-brand-dark transition duration-300">Shop Products</a>
-            </div>
+        <section id="products-section">
+            <h2>Our Products</h2>
+            <div id="product-grid" class="product-grid"></div>
         </section>
 
-        <section id="products-section" class="py-16 md:py-24">
-            <div class="container mx-auto px-6">
-                <h2 class="text-4xl md:text-5xl font-bold text-center mb-12 md:mb-16">Our Products</h2>
-                <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                    </div>
+        <section id="product-detail" class="hidden">
+            <div class="product-detail-content">
+                <div class="product-images">
+                    <img id="large-image" src="" alt="Product">
+                    <div id="thumbnail-images"></div>
+                </div>
+                <div class="product-info">
+                    <h2 id="product-title"></h2>
+                    <p id="product-description"></p>
+                    <p id="product-price"></p>
+                    <a id="buy-link" href="#" target="_blank" class="buy-link">Buy Now</a>
+                    <!--<button id="add-to-cart" data-id="#" class="add-to-cart">Add to Cart</button>-->
+                </div>
             </div>
         </section>
+    </main>
 
-        <section id="product-detail" class="product-detail-modal hidden">
-             <div class="product-detail-content bg-white rounded-lg shadow-xl overflow-hidden max-w-3xl w-11/12 md:w-3/4 relative">
-                 <button id="close-modal-btn" class="absolute top-3 right-4 text-3xl text-gray-500 hover:text-gray-800 z-20">&times;</button>
-                 <div class="md:flex">
-                     <div class="product-images w-full md:w-1/2 p-4">
-                        <img id="large-image" src="https://placehold.co/500x500/cccccc/333?text=Product" alt="Selected Product Image" class="w-full h-auto object-cover rounded-md mb-3 main-product-image">
-                        <div id="thumbnail-images" class="thumbnail-container flex space-x-2 justify-center">
-                            </div>
-                    </div>
-                     <div class="product-info w-full md:w-1/2 p-6 flex flex-col justify-between">
-                        <div>
-                             <h2 id="product-title" class="text-3xl font-semibold mb-3 font-heading">Product Title</h2>
-                             <p id="product-description" class="text-gray-600 mb-4 text-sm">Product description goes here.</p>
-                        </div>
-                        <div class="mt-auto">
-                             <p id="product-price" class="text-2xl font-bold text-primary-brand mb-5">Price</p>
-                             <a id="buy-link" href="#" target="_blank" class="btn bg-primary-brand text-white font-semibold rounded-full hover:bg-primary-brand-dark transition duration-300 w-full text-center">Buy Now</a>
-                             </div>
-                    </div>
-                 </div>
+    <!-- Cart Section -->
+    <!-- Button to open cart -->
+    <!--<button id="open-cart" class="open-cart">Cart</button>
+    <div id="cart" class="cart">
+        <div class="cart-header">
+            <h2>Your Cart</h2>
+            <button id="close-cart" class="close-cart">X</button>
+        </div>
+        <div id="cart-items" class="cart-items"></div>
+        <div class="cart-footer">
+            <p id="cart-total" class="cart-total">Total: $0.00</p>
+            <button id="checkout-button" class="checkout-button">Checkout</button>
+        </div>
+    </div>    -->
+
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="https://www.instagram.com/_styledwithahonesty_/" target="_blank" class="instagram-link">
+                    Follow Us
+                    <i class="fa fa-instagram" alt="Instagram Logo"> </i>
+                </a>
+                <a href="https://booksy.com/en-us/687726_ahonesty-kitchen_braids-locs_20639_wichita?do=invite&fbclid=PAZXh0bgNhZW0CMTEAAaa62DlNd_obIJY-cIp4jwWGKer4gy8s68qyHsb6SRACjAaZ3QqvRIKfkZk_aem_0xpFIrrz7JumB7ouZC-zyA#ba_s=dl_1" class="book-now-btn">Book Now</a>
             </div>
-        </section>
-
-        </main>
-
-    <footer class="footer-bg text-footer-text py-10">
-        <div class="container mx-auto px-6 text-center">
-            <div class="footer-content flex flex-col md:flex-row justify-between items-center">
-                 <div class="mb-4 md:mb-0">
-                    <p class="text-lg font-semibold">HonestlyTwisted</p>
-                 </div>
-                 <div class="footer-links flex space-x-6 mb-4 md:mb-0">
-                    <a href="https://www.instagram.com/_styledwithahonesty_/" target="_blank" class="hover:text-primary-brand transition duration-300">
-                        <i class="fab fa-instagram text-xl"></i> Follow Us
-                    </a>
-                    <a href="https://booksy.com/en-us/687726_ahonesty-kitchen_braids-locs_20639_wichita?do=invite&fbclid=PAZXh0bgNhZW0CMTEAAaa62DlNd_obIJY-cIp4jwWGKer4gy8s68qyHsb6SRACjAaZ3QqvRIKfkZk_aem_0xpFIrrz7JumB7ouZC-zyA#ba_s=dl_1" target="_blank" class="hover:text-primary-brand transition duration-300 font-semibold">Book Now</a>
-                 </div>
-                 <div class="copyright">
-                    <p class="text-sm">&copy; 2025 HonestlyTwisted. All rights reserved.</p>
-                 </div>
+            <div class="copyright">
+                <p>&copy; 2025 HonestlyTwisted. All rights reserved.</p>
             </div>
         </div>
     </footer>
-
 </body>
 </html>
