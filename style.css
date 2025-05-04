@@ -199,24 +199,6 @@ header {
     /* Ensures the card height is consistent */
 }
 
-@media(max-width: 1300px) {
-    .product-card {
-        width: 45%;
-    }
-}
-
-@media(max-width: 750px) {
-    .product-card {
-        width: 100%;
-    }
-    #product-detail {
-        width: 90%;
-        left: 5%;
-        top: 10%;
-        transform: none;
-    }
-}
-
 .product-card img {
     width: 95%;
     aspect-ratio: 1 / 1;
@@ -389,6 +371,24 @@ header {
 
 .product-info {
     flex: 1;
+}
+
+@media(max-width: 1300px) {
+    .product-card {
+        width: 45%;
+    }
+}
+
+@media(max-width: 750px) {
+    .product-card {
+        width: 100%;
+    }
+    #product-detail {
+        width: 90%;
+        left: 5%;
+        top: 10%;
+        transform: none;
+    }
 }
 
 /* Cart container */
