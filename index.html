@@ -4,87 +4,122 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HonestlyTwisted</title>
+    <title>HonestlyTwisted - Embrace Your Beauty</title>
     <link rel="icon" href="HonestlyTwistedLogoIcon.ico">
-    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script defer src="script.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
-    <!-- <header>
-        <nav>
-            <div class="logo">
-                <a href="/">  
-                    <img src="HonestlyTwistedLogoIcon.ico" alt="HonestlyTwisted Logo">
-                </a>
+<body class="bg-gradient-to-br from-[var(--bg-gradient-start)] via-[var(--bg-light)] to-[var(--bg-gradient-end)] text-[var(--text-medium)]">
+
+    <header class="bg-white/90 backdrop-blur-lg shadow-lg sticky top-0 z-50" x-data="{ mobileMenuOpen: false }">
+        <nav class="container mx-auto px-4 sm:px-6 lg:px-8 py-3">
+            <div class="flex justify-between items-center">
+                <div class="flex-shrink-0">
+                    <a href="/" class="flex items-center space-x-2 group">
+                        <img src="HonestlyTwistedLogoIcon.ico" alt="HonestlyTwisted Logo" class="h-10 w-auto rounded-md shadow-sm group-hover:opacity-80 transition-opacity" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <img src="https://placehold.co/120x40/f472b6/ffffff?text=HonestlyT" alt="HonestlyTwisted Logo Fallback" class="h-10 w-auto rounded-md shadow-sm hidden">
+                        <span class="font-bold text-xl text-[var(--primary-color)] hidden sm:inline group-hover:text-[var(--primary-hover-color)] transition-colors">HonestlyTwisted</span>
+                    </a>
+                </div>
+
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="#products-section" class="text-[var(--text-medium)] hover:text-[var(--primary-color)] transition duration-200 font-medium">Products</a>
+                    <a href="https://www.instagram.com/_styledwithahonesty_/" target="_blank" class="text-[var(--text-medium)] hover:text-[var(--primary-color)] transition duration-200 flex items-center space-x-1">
+                        <i class="fa fa-instagram" aria-hidden="true"></i>
+                        <span>Follow Us</span>
+                    </a>
+                    <a href="https://booksy.com/en-us/687726_ahonesty-kitchen_braids-locs_20639_wichita?do=invite&fbclid=PAZXh0bgNhZW0CMTEAAaa62DlNd_obIJY-cIp4jwWGKer4gy8s68qyHsb6SRACjAaZ3QqvRIKfkZk_aem_0xpFIrrz7JumB7ouZC-zyA#ba_s=dl_1" target="_blank" class="book-now-btn bg-[var(--primary-color)] hover:bg-[var(--primary-hover-color)] text-white font-semibold px-5 py-2 rounded-full shadow-md hover:shadow-lg transition duration-300 text-sm transform hover:scale-105">Book Now</a>
+                </div>
+
+                <div class="md:hidden flex items-center">
+                    <button @click="mobileMenuOpen = !mobileMenuOpen" class="text-[var(--text-medium)] hover:text-[var(--primary-color)] focus:outline-none p-2 rounded-md">
+                        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path :class="{ 'hidden': mobileMenuOpen, 'inline-flex': !mobileMenuOpen }" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                            <path :class="{ 'hidden': !mobileMenuOpen, 'inline-flex': mobileMenuOpen }" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
             </div>
-            <div class="header-links">
-                <a href="https://www.instagram.com/_styledwithahonesty_/" target="_blank" class="instagram-link">
-                    <i class="fa fa-instagram" alt="Instagram Logo"></i> Follow Us
+
+            <div x-show="mobileMenuOpen" x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-95" class="md:hidden mt-3 space-y-2 pb-3 border-t border-gray-200">
+                 <a href="#products-section" @click="mobileMenuOpen = false" class="block px-3 py-2 rounded-md text-base font-medium text-[var(--text-medium)] hover:text-[var(--primary-color)] hover:bg-pink-50">Products</a>
+                <a href="https://www.instagram.com/_styledwithahonesty_/" target="_blank" class="block px-3 py-2 rounded-md text-base font-medium text-[var(--text-medium)] hover:text-[var(--primary-color)] hover:bg-pink-50 flex items-center space-x-2">
+                     <i class="fa fa-instagram" aria-hidden="true"></i>
+                    <span>Follow Us</span>
                 </a>
-                <a href="https://booksy.com/en-us/687726_ahonesty-kitchen_braids-locs_20639_wichita?do=invite&fbclid=PAZXh0bgNhZW0CMTEAAaa62DlNd_obIJY-cIp4jwWGKer4gy8s68qyHsb6SRACjAaZ3QqvRIKfkZk_aem_0xpFIrrz7JumB7ouZC-zyA#ba_s=dl_1" class="book-now-btn">Book Now</a>
+                <a href="https://booksy.com/en-us/687726_ahonesty-kitchen_braids-locs_20639_wichita?do=invite&fbclid=PAZXh0bgNhZW0CMTEAAaa62DlNd_obIJY-cIp4jwWGKer4gy8s68qyHsb6SRACjAaZ3QqvRIKfkZk_aem_0xpFIrrz7JumB7ouZC-zyA#ba_s=dl_1" target="_blank" class="block w-full text-center bg-[var(--primary-color)] hover:bg-[var(--primary-hover-color)] text-white font-semibold px-5 py-2 rounded-full shadow-md hover:shadow-lg transition duration-300 text-sm mt-2">Book Now</a>
             </div>
         </nav>
-    </header> -->
+    </header>
 
-    <section class="hero">
-        <div class="hero-content">
-            <h2>Embrace Your Hair's Natural Beauty</h2>
-            <p>Discover premium products crafted for every twist and turn.</p>
+    <section class="hero animated-gradient text-[var(--text-light)] py-24 md:py-40 text-center relative overflow-hidden">
+         <div class="absolute inset-0 bg-black/40 mix-blend-multiply z-0"></div>
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="hero-content max-w-3xl mx-auto">
+                <h1 class="text-4xl md:text-6xl font-bold mb-4 leading-tight drop-shadow-lg">Embrace Your Hair's Natural Beauty</h1>
+                <p class="text-lg md:text-xl opacity-95 mb-8 drop-shadow-md">Discover premium products crafted with love for every twist, curl, and turn.</p>
+                 <a href="#products-section" class="bg-white text-[var(--primary-color)] hover:text-[var(--primary-hover-color)] font-semibold px-8 py-3 rounded-full shadow-lg hover:bg-gray-100 hover:shadow-xl transition duration-300 transform hover:scale-105 inline-block hover:rotate-[-1deg]">Shop Now</a>
+            </div>
         </div>
     </section>
 
-    <main>
+    <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
         <section id="products-section">
-            <h2>Our Products</h2>
-            <div id="product-grid" class="product-grid"></div>
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 md:mb-16 text-[var(--text-dark)] relative inline-block mx-auto left-1/2 transform -translate-x-1/2">
+                Our Signature Collection
+                 <span class="absolute bottom-0 left-1/4 w-1/2 h-1 bg-[var(--primary-color)] rounded-full -mb-2 opacity-80"></span>
+            </h2>
+            <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 md:gap-10">
+            </div>
         </section>
 
-        <section id="product-detail" class="hidden">
-            <div class="product-detail-content">
-                <div class="product-images">
-                    <img id="large-image" src="" alt="Product">
-                    <div id="thumbnail-images"></div>
+        <section id="product-detail" class="hidden" aria-labelledby="product-title" role="dialog" aria-modal="true">
+            <div class="product-detail-content bg-[var(--card-bg)] rounded-xl shadow-2xl w-full md:w-4/5 lg:w-3/4 xl:w-2/3 max-w-5xl max-h-[95vh] flex flex-col md:flex-row overflow-hidden relative">
+                 <div class="product-images w-full md:w-1/2 p-5 md:p-8 flex flex-col items-center bg-gradient-to-br from-gray-50 to-gray-100">
+                    <div class="w-full max-w-md aspect-w-1 aspect-h-1 mb-4 rounded-lg overflow-hidden shadow-lg bg-white">
+                         <img id="large-image" src="" alt="Product Main Image" class="w-full h-full object-cover transition-opacity duration-300 opacity-0">
+                    </div>
+                     <div id="thumbnail-images" class="flex space-x-3 overflow-x-auto pb-2 w-full justify-center">
+                     </div>
                 </div>
-                <div class="product-info">
-                    <h2 id="product-title"></h2>
-                    <p id="product-description"></p>
-                    <p id="product-price"></p>
-                    <a id="buy-link" href="#" target="_blank" class="buy-link">Buy Now</a>
-                    <!--<button id="add-to-cart" data-id="#" class="add-to-cart">Add to Cart</button>-->
-                </div>
+
+                <div class="product-info w-full md:w-1/2 p-6 md:p-8 flex flex-col justify-center overflow-y-auto">
+                    <h2 id="product-title" class="text-3xl lg:text-4xl font-bold text-[var(--text-dark)] mb-3"></h2>
+                    <p id="product-description" class="text-[var(--text-medium)] mb-5 text-base leading-relaxed"></p>
+                    <p id="product-price" class="text-3xl lg:text-4xl font-semibold text-[var(--primary-color)] mb-8"></p>
+                    <a id="buy-link" href="#" target="_blank" class="buy-link bg-gradient-to-r from-[var(--primary-color)] to-[var(--secondary-color)] hover:from-[var(--primary-hover-color)] hover:to-[var(--secondary-hover-color)] text-white font-bold px-8 py-3 rounded-lg shadow-lg hover:shadow-xl transition duration-300 text-center w-full transform hover:scale-105 flex items-center justify-center space-x-2 group">
+                         <i class="fa fa-shopping-cart transition-transform duration-300 group-hover:rotate-[-10deg]" aria-hidden="true"></i>
+                         <span>Buy Now</span>
+                    </a>
+                    </div>
             </div>
         </section>
     </main>
 
-    <!-- Cart Section -->
-    <!-- Button to open cart -->
-    <!--<button id="open-cart" class="open-cart">Cart</button>
-    <div id="cart" class="cart">
-        <div class="cart-header">
-            <h2>Your Cart</h2>
-            <button id="close-cart" class="close-cart">X</button>
-        </div>
-        <div id="cart-items" class="cart-items"></div>
-        <div class="cart-footer">
-            <p id="cart-total" class="cart-total">Total: $0.00</p>
-            <button id="checkout-button" class="checkout-button">Checkout</button>
-        </div>
-    </div>    -->
-
-
-    <footer>
-        <div class="footer-content">
-            <div class="footer-links">
-                <a href="https://www.instagram.com/_styledwithahonesty_/" target="_blank" class="instagram-link">
-                    Follow Us
-                    <i class="fa fa-instagram" alt="Instagram Logo"> </i>
-                </a>
-                <a href="https://booksy.com/en-us/687726_ahonesty-kitchen_braids-locs_20639_wichita?do=invite&fbclid=PAZXh0bgNhZW0CMTEAAaa62DlNd_obIJY-cIp4jwWGKer4gy8s68qyHsb6SRACjAaZ3QqvRIKfkZk_aem_0xpFIrrz7JumB7ouZC-zyA#ba_s=dl_1" class="book-now-btn">Book Now</a>
-            </div>
-            <div class="copyright">
-                <p>&copy; 2025 HonestlyTwisted. All rights reserved.</p>
+    <footer class="bg-[var(--footer-bg)] text-[var(--footer-text)] py-12 md:py-16 mt-24">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="footer-content">
+                 <a href="/" class="inline-block mb-6 group">
+                     <span class="font-bold text-2xl text-[var(--primary-color)] group-hover:text-[var(--primary-hover-color)] transition-colors duration-300">HonestlyTwisted</span>
+                 </a>
+                <div class="footer-links mb-6 flex justify-center items-center space-x-6 md:space-x-8">
+                     <a href="#products-section" class="hover:text-[var(--footer-link-hover)] transition duration-200 text-sm">Products</a>
+                    <a href="https://www.instagram.com/_styledwithahonesty_/" target="_blank" class="hover:text-[var(--footer-link-hover)] transition duration-200 flex items-center space-x-1">
+                        <i class="fa fa-instagram text-xl" aria-hidden="true"></i>
+                        <span class="hidden sm:inline text-sm">Follow Us</span>
+                    </a>
+                    <a href="https://booksy.com/en-us/687726_ahonesty-kitchen_braids-locs_20639_wichita?do=invite&fbclid=PAZXh0bgNhZW0CMTEAAaa62DlNd_obIJY-cIp4jwWGKer4gy8s68qyHsb6SRACjAaZ3QqvRIKfkZk_aem_0xpFIrrz7JumB7ouZC-zyA#ba_s=dl_1" target="_blank" class="hover:text-blue-400 transition duration-200 text-sm">Book Now</a>
+                </div>
+                <div class="copyright">
+                    <p class="text-xs opacity-80">&copy; <span id="current-year"></span> HonestlyTwisted. All rights reserved.</p>
+                </div>
             </div>
         </div>
     </footer>
