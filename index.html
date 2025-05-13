@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body class="bg-gradient-to-br from-[var(--bg-gradient-start)] via-[var(--bg-light)] to-[var(--bg-gradient-end)] text-[var(--text-medium)]">
+<<body class="bg-gradient-to-br from-[var(--bg-gradient-start)] via-[var(--bg-light)] to-[var(--bg-gradient-end)] text-[var(--text-medium)]">
 
     <header class="bg-white/90 backdrop-blur-lg shadow-lg sticky top-0 z-50" x-data="{ mobileMenuOpen: false }">
         <nav class="container mx-auto px-4 sm:px-6 lg:px-8 py-3">
@@ -81,24 +81,28 @@
         </section>
 
         <section id="product-detail" class="hidden" aria-labelledby="product-title" role="dialog" aria-modal="true">
-            <div class="product-detail-content bg-[var(--card-bg)] rounded-xl shadow-2xl w-full md:w-4/5 lg:w-3/4 xl:w-2/3 max-w-5xl max-h-[95vh] flex flex-col md:flex-row overflow-hidden relative">
-                 <div class="product-images w-full md:w-1/2 p-5 md:p-8 flex flex-col items-center bg-gradient-to-br from-gray-50 to-gray-100">
-                    <div class="w-full max-w-md aspect-w-1 aspect-h-1 mb-4 rounded-lg overflow-hidden shadow-lg bg-white">
+            <div class="product-detail-content bg-[var(--card-bg)] rounded-xl shadow-2xl w-full md:w-4/5 lg:w-3/4 xl:w-2/3 max-w-5xl max-h-[90vh] flex flex-col md:flex-row overflow-hidden relative">
+                 <div class="product-images w-full md:w-1/2 p-4 pt-8 md:p-8 flex flex-col items-center bg-gradient-to-br from-gray-50 to-gray-100 shrink-0 md:shrink">
+                    <div class="w-full max-w-xs sm:max-w-sm aspect-w-1 aspect-h-1 mb-4 rounded-lg overflow-hidden shadow-lg bg-white">
                          <img id="large-image" src="" alt="Product Main Image" class="w-full h-full object-cover transition-opacity duration-300 opacity-0">
                     </div>
-                     <div id="thumbnail-images" class="flex space-x-3 overflow-x-auto pb-2 w-full justify-center">
+                     <div id="thumbnail-images" class="flex space-x-2 sm:space-x-3 overflow-x-auto pb-2 w-full justify-center">
                      </div>
                 </div>
 
-                <div class="product-info w-full md:w-1/2 p-6 md:p-8 flex flex-col justify-center overflow-y-auto">
-                    <h2 id="product-title" class="text-3xl lg:text-4xl font-bold text-[var(--text-dark)] mb-3"></h2>
-                    <p id="product-description" class="text-[var(--text-medium)] mb-5 text-base leading-relaxed"></p>
-                    <p id="product-price" class="text-3xl lg:text-4xl font-semibold text-[var(--primary-color)] mb-8"></p>
-                    <a id="buy-link" href="#" target="_blank" class="buy-link bg-gradient-to-r from-[var(--primary-color)] to-[var(--secondary-color)] hover:from-[var(--primary-hover-color)] hover:to-[var(--secondary-hover-color)] text-white font-bold px-8 py-3 rounded-lg shadow-lg hover:shadow-xl transition duration-300 text-center w-full transform hover:scale-105 flex items-center justify-center space-x-2 group">
-                         <i class="fa fa-shopping-cart transition-transform duration-300 group-hover:rotate-[-10deg]" aria-hidden="true"></i>
-                         <span>Buy Now</span>
-                    </a>
+                <div class="flex flex-col flex-grow overflow-hidden w-full md:w-1/2">
+                    <div class="overflow-y-auto flex-grow p-4 pt-10 sm:pt-4 md:p-6 lg:p-8">
+                        <h2 id="product-title" class="text-xl sm:text-2xl md:text-3xl font-bold text-[var(--text-dark)] mb-2 md:mb-3"></h2>
+                        <p id="product-description" class="text-[var(--text-medium)] text-sm md:text-base leading-relaxed"></p>
                     </div>
+                    <div class="product-actions shrink-0 p-4 border-t border-gray-200 bg-[var(--card-bg)]">
+                        <p id="product-price" class="text-xl sm:text-2xl md:text-3xl font-semibold text-[var(--primary-color)] mb-3"></p>
+                        <a id="buy-link" href="#" target="_blank" class="buy-link bg-gradient-to-r from-[var(--primary-color)] to-[var(--secondary-color)] hover:from-[var(--primary-hover-color)] hover:to-[var(--secondary-hover-color)] text-white font-bold px-6 py-2.5 sm:px-8 sm:py-3 rounded-lg shadow-lg hover:shadow-xl transition duration-300 text-center w-full transform hover:scale-105 flex items-center justify-center space-x-2 group text-sm sm:text-base">
+                             <i class="fa fa-shopping-cart transition-transform duration-300 group-hover:rotate-[-10deg]" aria-hidden="true"></i>
+                             <span>Buy Now</span>
+                        </a>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
