@@ -1,9 +1,9 @@
+/* Light Mode Color Palette (Default) */
 :root {
     --primary-color: #ec4899;
     --primary-hover-color: #db2777;
     --secondary-color: #a855f7;
     --secondary-hover-color: #9333ea;
-    --accent-color: #d946ef;
     --text-dark: #1f2937;
     --text-medium: #4b5563;
     --text-light: #f9fafb;
@@ -14,44 +14,98 @@
     --footer-bg: #111827;
     --footer-text: #9ca3af;
     --footer-link-hover: var(--primary-color);
-     --hero-grad-1: #ee7752;
-     --hero-grad-2: #e73c7e;
-     --hero-grad-3: #23a6d5;
-     --hero-grad-4: #23d5ab;
+    --hero-grad-1: #ee7752;
+    --hero-grad-2: #e73c7e;
+    --hero-grad-3: #23a6d5;
+    --hero-grad-4: #23d5ab;
 }
 
+/* Dark Mode Color Palette */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --primary-color: #f472b6;
+        /* Lighter pink for better contrast */
+        --primary-hover-color: #ec4899;
+        --secondary-color: #c084fc;
+        /* Lighter purple */
+        --secondary-hover-color: #a855f7;
+
+        --text-dark: #f3f4f6;
+        /* Inverted: Was dark, now light */
+        --text-medium: #d1d5db;
+        /* Inverted: Was medium, now light-medium */
+        --text-light: #1f2937;
+        /* Inverted: Was light, now dark */
+
+        --bg-light: #111827;
+        /* Dark background */
+        --bg-gradient-start: #1e1b4b;
+        /* Dark purple/blue gradient start */
+        --bg-gradient-end: #1f2937;
+        /* Dark charcoal gradient end */
+
+        --card-bg: #1f2937;
+        /* Dark card background */
+
+        --footer-bg: #0f172a;
+        /* Even darker footer */
+        --footer-text: #9ca3af;
+        /* Stays the same, good contrast */
+        --footer-link-hover: var(--primary-color);
+        /* Stays the same */
+    }
+}
+
+/* * ==============================================
+         * Base & Global Styles
+         * ==============================================
+         */
 body {
     font-family: 'Poppins', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    /* Use CSS variables for colors to allow theme switching */
     background-color: var(--bg-light);
     color: var(--text-medium);
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+/* Dotted pattern background overlay */
 body::before {
-    /* content: ''; */
+    content: '';
     position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background-image: radial-gradient(circle, rgba(236, 72, 153, 0.03) 1px, transparent 1px);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(circle, rgba(139, 92, 246, 0.05) 1px, transparent 1px);
     background-size: 20px 20px;
     opacity: 0.5;
     z-index: -1;
+
+    /* Hide pattern in dark mode for a cleaner look */
+    @media (prefers-color-scheme: dark) {
+        display: none;
+    }
 }
 
+/* * ==============================================
+         * Product Modal Styles
+         * ==============================================
+         */
 #product-detail {
     position: fixed;
     inset: 0;
-    background-color: rgba(0, 0, 0, 0.8);
-    backdrop-filter: blur(5px);
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(8px);
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 1000;
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
-    padding: 1rem; 
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    padding: 1rem;
 }
 
 #product-detail:not(.hidden) {
@@ -60,31 +114,32 @@ body::before {
 }
 
 .product-detail-content {
-     transform: scale(0.95) translateY(10px);
-     transition: transform 0.35s cubic-bezier(0.165, 0.84, 0.44, 1), opacity 0.3s ease-in-out;
-     opacity: 0;
+    transform: scale(0.95) translateY(15px);
+    transition: transform 0.35s cubic-bezier(0.165, 0.84, 0.44, 1), opacity 0.3s ease;
+    opacity: 0;
 }
+
 #product-detail:not(.hidden) .product-detail-content {
-     transform: scale(1) translateY(0);
-     opacity: 1;
+    transform: scale(1) translateY(0);
+    opacity: 1;
 }
 
 .close-button {
     position: absolute;
-    top: 0.75rem; /* Adjusted for better placement within modal padding */
+    top: 0.75rem;
     right: 0.75rem;
     background: rgba(50, 50, 50, 0.7);
     color: white;
     border: none;
     border-radius: 50%;
-    width: 32px; /* Slightly smaller for mobile if needed */
+    width: 32px;
     height: 32px;
     font-size: 20px;
     line-height: 32px;
     text-align: center;
     cursor: pointer;
     transition: background-color 0.2s ease, transform 0.3s ease;
-    z-index: 20; /* Ensure it's above other modal content */
+    z-index: 20;
 }
 
 .close-button:hover {
@@ -92,42 +147,74 @@ body::before {
     transform: rotate(180deg) scale(1.1);
 }
 
+/* * ==============================================
+         * Thumbnail & Animation Styles
+         * ==============================================
+         */
 .thumbnail-active {
     border: 3px solid var(--primary-color);
     box-shadow: 0 0 10px rgba(236, 72, 153, 0.6);
     transform: scale(1.05);
 }
+
 #thumbnail-images img {
-     transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-#thumbnail-images::-webkit-scrollbar { display: none; }
-#thumbnail-images { -ms-overflow-style: none; scrollbar-width: none; }
+/* Hide scrollbar for thumbnail container */
+#thumbnail-images::-webkit-scrollbar {
+    display: none;
+}
 
+#thumbnail-images {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* Smooth image scaling on product card hover */
 .product-card img {
     transition: transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
+
 .product-card:hover img {
     transform: scale(1.07);
 }
+
 .product-card .buy-now-card-btn {
-     transition: all 0.3s ease;
+    transition: all 0.3s ease;
 }
 
+/* Animated gradient for hero section */
 @keyframes gradient-animation {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
 }
+
 .animated-gradient {
     background: linear-gradient(-45deg, var(--hero-grad-1), var(--hero-grad-2), var(--hero-grad-3), var(--hero-grad-4));
     background-size: 400% 400%;
     animation: gradient-animation 15s ease infinite;
 }
 
-.aspect-w-1 { position: relative; padding-bottom: 100%; }
-.aspect-w-1 > * { position: absolute; height: 100%; width: 100%; top: 0; left: 0; object-fit: cover; }
+/* Aspect ratio utility for images */
+.aspect-w-1 {
+    position: relative;
+    padding-bottom: 100%;
+}
 
-html {
-    scroll-behavior: smooth;
+.aspect-w-1>* {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
 }
